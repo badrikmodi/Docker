@@ -1,17 +1,14 @@
-user_ip = raw_input("Enter the ip address")
-print(user_ip)
-print('\n')
-print(type(user_ip))
+def isIPv4Address(inputString):
+    s=inputString.split('.')
+    if len(s)!=4:
+        return False
+    for elem in s:
+        if len(elem)==0:
+            return False
+        if not elem.isdigit():
+            return False
+        if not 0<=int(elem)<=255:
+            return False
+    return True
 
-x = user_ip.split(".")
-print(x)
-
-count = 0
-for i in x:
-    print(type(i),'i')
-    i1 = int(i)
-    print(type(i1),'i1')
-    if i1 >= 0 and i1 <=255:
-        print(i1,'yes')
-    else:
-        print(i1,'no')
+print(isIPv4Address("265.153.123.231"))
